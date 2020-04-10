@@ -1,0 +1,5 @@
+String recebe = JoptionPane.showInputDialog(null,"Entre com um valor");
+
+       int converteRecebeInt = Integer.parseInt(recebe); // converte String para int
+       float converteRecebeFloat = Float.parseFloat(recebe); //converte String para float
+       double converteRecebeDouble = Double.parseDouble(recebe); //converte de String para Double 
