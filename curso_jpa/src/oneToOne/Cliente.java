@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,19 +24,18 @@ public class Cliente {
 	@Column
 	private String nome;
 	@OneToOne  //Anotation de Relacionamento 1 para 1
+	@JoinColumn (name ="assento_id") // Manter a Integridade de Uma coluna
 	private Assento assento;
 	//Construct 1
 	public Cliente() {
 		//Padrao
 	}
 	//Construct 2 Parametros
-	public Cliente(Long id, String nome, Assento assento) {
+	public Cliente(String nome, Assento assento) {
 		super();
-		this.id = id;
 		this.nome = nome;
 		this.assento = assento;
 	}
-	
 	//Getter Setter
 	public Long getId() {
 		return id;

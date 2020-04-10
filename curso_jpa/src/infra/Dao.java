@@ -6,13 +6,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.sound.sampled.UnsupportedAudioFileException;
+/** curso_jpa 
+ *  Dao.java 
+ *  Criado em : 9 de abr de 2020
+ *  @author jaime Des */
 
-/**
- * curso_jpa 
- * Dao.java 
- * Criado em : 9 de abr de 2020
- * @author jaime Des */
-//Classe Dao generico
+//Classe Dao generica
 public class Dao<E> {
 
 	private static EntityManagerFactory emf;
@@ -76,7 +75,7 @@ public class Dao<E> {
 		return query.getResultList();
 	}
 	// Metodo Listar
-		public List<E> listar() throws UnsupportedAudioFileException {
+	public List<E> listar() throws UnsupportedAudioFileException {
 			// Verifica se objeto não veio Nulo
 			if (classe == null) {
 				throw new UnsupportedAudioFileException("Classe nula");
@@ -87,7 +86,6 @@ public class Dao<E> {
 			//query.setFirstResult(deslocamento);
 			return query.getResultList();
 		}
-
 	// Fechar Dao
 	public void fecharDao() {
 		em.close();

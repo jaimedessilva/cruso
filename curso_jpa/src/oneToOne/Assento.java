@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /** Projeto: curso_jpa 
@@ -20,14 +21,15 @@ public class Assento {
 	private long id;
 	@Column
 	private String nome;
+	@OneToOne
+	private Cliente cli;
 
 	public Assento() {
 		// Construct Padrao
 	}
 
-	public Assento(long id, String nome) {
+	public Assento(String nome) {
 		super();
-		this.id = id;
 		this.nome = nome;
 	}
 
