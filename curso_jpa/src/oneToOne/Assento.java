@@ -21,7 +21,7 @@ public class Assento {
 	private long id;
 	@Column
 	private String nome;
-	@OneToOne
+	@OneToOne (mappedBy = "assento")
 	private Cliente cli;
 
 	public Assento() {

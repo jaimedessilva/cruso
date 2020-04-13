@@ -86,6 +86,10 @@ public class Dao<E> {
 			//query.setFirstResult(deslocamento);
 			return query.getResultList();
 		}
+	//Metodo Obter por ID
+	public E getById (Object id) {
+		return em.find(classe, id);
+	}
 	// Fechar Dao
 	public void fecharDao() {
 		em.close();
