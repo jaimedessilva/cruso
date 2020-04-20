@@ -16,7 +16,8 @@ import db.ConnectionFactory;
 import model.Usuario;
 
 /**
- * @author jaime Des Criado em : 7 de abr de 2020 exercicios
+ * @author jaime Des 
+ * Criado em : 7 de abr de 2020 exercicios
  */
 public class Dao {
 	// Attributes

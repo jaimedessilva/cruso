@@ -4,7 +4,8 @@
 package model;
 
 /**
- * @author jaime Des Criado em : 7 de abr de 2020 exercicios
+ * @author jaime Des 
+ * Criado em : 7 de abr de 2020 exercicios
  */
 public class Usuario {
 	public long id = 1;
@@ -35,5 +36,4 @@ public class Usuario {
 	public String toString() {
 		return "\n id: " + id + "\n nome: " + nome + "\n email: " + email + "\n telefone: " + telefone;
 	}
-
 }

@@ -18,6 +18,8 @@ public class CaixaObjeto<Obj> {
 	}
 	//Metodo que executa
 	public static void main(String[] args) {
-		
+		CaixaObjeto cx = new CaixaObjeto<>();
+		cx.obj = "Jaime";
+		System.out.println(cx.getObj());
 	}
 }

@@ -3,10 +3,13 @@ package objectArrayCollection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
 /**
  * Projeto: curso_java 
  * Classe: CollectArrayList.java 
@@ -72,5 +75,13 @@ public class CollectArrayList {
 		for (Object ob : lst) {
 			System.out.println(ob);
 		}
+		
+		List<String> names = Arrays.asList("Joao","Maria","Pedro","Caio");
+		List<Integer> nums = Arrays.asList(1,2,3,4);
+		List qualquerCoisa = Arrays.asList(1,2,3,"Fernando","Marcos",22.10,'c',1_000_111_555_555L);
+		
+		for (Object ob : qualquerCoisa) {
+			System.out.println(ob);
+		}	
 	}
 }

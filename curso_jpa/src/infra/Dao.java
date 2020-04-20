@@ -56,7 +56,7 @@ public class Dao<E> {
 		return this;
 	}
 
-	// Metodo Persist
+	// Metodo Persist Atomico
 	public Dao<E> inserirAtomico(E entidade) {
 		em.persist(entidade);
 		return this.abrirT().fechatT();

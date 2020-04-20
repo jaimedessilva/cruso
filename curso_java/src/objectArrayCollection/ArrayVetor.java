@@ -83,7 +83,7 @@ public class ArrayVetor {
 		 	//Matriz de Object
 		 	Object obj[][] = new Object[2][2];
 			 	obj[0][0]= 10;
-			 	obj[0][1]= "jaime";
+			 	obj[0][1]= "Bruce";
 			 	obj[1][0]= 30;
 			 	obj[1][1]= "Felipe";
 		 	
@@ -92,12 +92,6 @@ public class ArrayVetor {
 		 			System.out.println(obj[i1][i2]);
 		 		}
 		 	}
-		 	
-				 
-				 
-				 
-				 
-				 
 
 	}		
 }
