@@ -90,6 +90,7 @@ public class Dao<E> {
 		//Find Entidade By Id
 		E entidade = em.find(classe, id);
 		if (entidade != null) {
+			//Confirmação
 			System.out.println("Deseja realmente remover esse Registro???");
 			System.out.println(entidade.toString());
 			Scanner sc = new Scanner(System.in);
