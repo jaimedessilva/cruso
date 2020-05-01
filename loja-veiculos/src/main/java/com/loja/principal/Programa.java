@@ -1,15 +1,16 @@
 package com.loja.principal;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import com.loja.dominio.Acessorio;
 import com.loja.dominio.Proprietario;
 import com.loja.dominio.TipoCombustivel;
 import com.loja.dominio.Veiculo;
-import com.loja.dominio.VeiculoId;
+import com.loja.dominio.VeiculoPlaca;
 import com.loja.util.JpaUtil;
 
 /** Projeto: loja-veiculos 
@@ -25,22 +26,42 @@ public class Programa {
 		/*
 		 * Proprietários
 		 */
-		Proprietario p1 = new Proprietario(null, "Joao das Couves", "34-1234-5678", "joao@email.com");
-		Proprietario p2 = new Proprietario(null, "Carlos Maia", "34-3333-5678", "carlos@email.com");
-		Proprietario p3 = new Proprietario(null, "Xororo", "89-123-1111", "caiodias@gmail.com");
-		Proprietario p4 = new Proprietario(null, "Caio Dias", "88-555-5555", null);
+		Proprietario p1 = new Proprietario(null, "Joao das Couves","joao@email.com","34-1234-5678");
+		Proprietario p2 = new Proprietario(null, "Carlos Maia", "carlos@email.com", "34-3333-5678");
+		Proprietario p3 = new Proprietario(null, "Xororo", "caiodias@gmail.com", "89-123-1111");
+		Proprietario p4 = new Proprietario(null, "Caio Dias", null,"88-555-5555");
+		/*
+		 *  Acessório
+		 */
+		Acessorio ac1 = new Acessorio(null,"Roda de Liga Leve",null);
+		Acessorio ac2 = new Acessorio(null,"Sensor de Estacionamento",null);
+		Acessorio ac3 = new Acessorio(null,"MP3 Player",null);
+		Acessorio ac4 = new Acessorio(null,"Pintura Metalizada",null);
+			List<Acessorio> lst = new ArrayList<>();
+			lst.add(ac1);
+			lst.add(ac2);
+			lst.add(ac3);
+			lst.add(ac4);
+			for (Acessorio acss : lst) {
+				//System.out.println(acss);
+			}
+	
+		/*
+		 *  Placa
+		 */
+		VeiculoPlaca pl1 = new VeiculoPlaca("AAA-1111", "Uberlandia");
+		VeiculoPlaca pl2 = new VeiculoPlaca("ABC-1111", "Goiania");
+		VeiculoPlaca pl3 = new VeiculoPlaca("ABC-1200", "São Bernardo");
+		VeiculoPlaca pl4 = new VeiculoPlaca("ABC-1234", "Uberlandia");
+		
 		/*
 		 * Veículos
 		 */
-		VeiculoId vi1 = new VeiculoId("AAA-1111", "Uberlandia");
-		Veiculo v1 = new Veiculo(vi1, "Fiat", "Toro", 2020, 2020, 107000.00, TipoCombustivel.DIESEL, null, p1);
-		VeiculoId vi2 = new VeiculoId("ABC-1111", "Goiania");
-		Veiculo v2 = new Veiculo(vi2, "Ford", "Fiesta", 2019, 2019, 42000.00, TipoCombustivel.GASOLINA, null, p2);
-		VeiculoId vi3 = new VeiculoId("ABC-1200", "São Bernardo");
-		Veiculo v3 = new Veiculo(vi3, "VW", "Gol", 2019, 2020, 35000.00, TipoCombustivel.BICOMBUSTIVEL, null, p3);
-		VeiculoId vi4 = new VeiculoId("ABC-1234", "Uberlandia");
-		Veiculo v4 = new Veiculo(vi4, "Honda", "Civic", 2020, 2020, 71300.00, TipoCombustivel.BICOMBUSTIVEL, null, p4);
-
+		
+		Veiculo v1 = new Veiculo(null, pl1, "Fiat", "Toro", 2020, 2020, 107000.00, TipoCombustivel.DIESEL, null, p1,null);	
+		Veiculo v2 = new Veiculo(null, pl2, "Ford", "Fiesta", 2019, 2019, 42000.00, TipoCombustivel.GASOLINA, null, p2, null);
+		Veiculo v3 = new Veiculo(null, pl3, "VW", "Gol", 2019, 2020, 35000.00, TipoCombustivel.BICOMBUSTIVEL, null, p3, null);
+		Veiculo v4 = new Veiculo(null, pl4, "Honda", "Civic", 2020, 2020, 71300.00, TipoCombustivel.BICOMBUSTIVEL, null, p4, null);
 		// Scanner
 		Scanner sc = new Scanner(System.in);
 
@@ -48,9 +69,12 @@ public class Programa {
 		/*
 		 * Menu de Opções
 		 */
-		System.out.println("\n 0 - Abrir Conexao " + "\n 1 - Cadastrar " + "\n 2 - Atualizar " + "\n 3 - Listar "
-				+ "\n 4 - Buscar " + "\n 5 - Sair " + "\n 6 - Cadastrar Um" + "\n 7 - Remover" + "\n 8 - Pesquisar Nome"
-				+ "\n 9 - Teste" + "\n 10 - Buscar Prorprietário");
+		System.out.println("\n 0 - Abrir Conexao " + "\n 1 - Cadastrar " + "\n 2 - Atualizar " 
+				+ "\n 3 - Listar "
+				+ "\n 4 - Buscar " + "\n 5 - Sair " + "\n 6 - Cadastrar Um" + "\n 7 - Remover" 
+				+ "\n 8 - Pesquisar Nome"
+				+ "\n 9 - Teste" 
+				+ "\n 10 - Buscar Prorprietário");
 		int opcao = sc.nextInt();
 
 		// EntityManager --> Abre Conexão ...
@@ -65,7 +89,7 @@ public class Programa {
 		} else if (opcao == 1) {
 
 			/*
-			 * Cadatrar um Veículo
+			 * Cadastrar um Veículo
 			 */
 
 			System.out.println("Cadastrar");
@@ -144,18 +168,52 @@ public class Programa {
 			 * Cadastrar Um veículo
 			 */
 			System.out.println("Cadastrar Um");
+			
+			String desc = "Veículo em excelente estado adquirido de um "
+					+ "chacke em meados de novembro desse ano";
+			try {
+				//Proprietario
+				Proprietario p0 = new Proprietario(19L,"Reilson Lima","reilson@gmail.com","61-5555-9999");             //Proprietário
+				Proprietario p = new Proprietario(20L,"Roberto Jefferson","roberto@gmail.com","61-9999-9999");          //Proprietário
+				
+				//Id tabela Veículo
+				VeiculoPlaca pl0 = new VeiculoPlaca("AAA-777","Brasilia-DF"); //Id
+				VeiculoPlaca pl = new VeiculoPlaca("ABE-777","Brasilia-DF");  //Id
+				VeiculoPlaca pl11 = new VeiculoPlaca("CCC-777","Brasilia-DF");  //Id
+				VeiculoPlaca pl22 = new VeiculoPlaca("XXX-555","Rio de Janeiro");  //Id
 
-			em = JpaUtil.getFactory();
 
-			em.getTransaction().begin();
 
-			v = new Veiculo(null, "Ferrari", "Ferrari 360sp", 2015, 2016, 556.899, null, null, null); // Instancia um
-																										// Veiculo
+				//Veículos
+				Veiculo v0 = new Veiculo(null,pl0, "Ferrari", "Ferrari 360sp", 2018, 2019, 756965.89, TipoCombustivel.GASOLINA,desc,p0, null); 
+				Veiculo vv = new Veiculo(null,pl, "Lamborguini", "Lamborguini Murcielago", 2016, 2017, 876965.89, TipoCombustivel.GASOLINA,desc,p0, null);
+				Veiculo vv1 = new Veiculo(null,pl11, "Lamborguini", "Lamborghini Murciélago", 2017, 2017, 676965.89, TipoCombustivel.GASOLINA,desc,p, null);
+				Veiculo vv2 = new Veiculo(null,pl22, "Ford", "Ká", 2017, 2017, 18965.89, TipoCombustivel.BICOMBUSTIVEL,desc,p, null);
+				
+				
+				em = JpaUtil.getFactory();
+				em.getTransaction().begin();
+				
+				//em.persist(p0); //Persiste Proprietario
+				//em.persist(v0); // Persiste o Veiculo
+				
+				//em.persist(p);
+				//em.persist(vv);
+				em.persist(p0);
+				em.persist(p);
+				em.persist(v0);
+				em.persist(vv);
+				em.persist(vv1);
+				em.persist(vv2);
 
-			em.persist(v); // Persiste o Veiculo
-			em.getTransaction().commit(); // Commit
-			em.close(); // Fecha Manager
-			JpaUtil.close(); // Fecha Factory
+				em.getTransaction().commit(); // Commit
+				
+				em.close(); // Fecha Manager
+				JpaUtil.close(); // Fecha Factory
+			}catch (Exception e) {
+				e.getStackTrace();
+			}
+	
 
 		} else if (opcao == 7) {
 
@@ -207,9 +265,9 @@ public class Programa {
 			esp.append("IPVA pago, aceita financiamento.");
 
 			Veiculo vv = new Veiculo();
-			VeiculoId id = new VeiculoId("ABC-1345", "Goianesia");
+			VeiculoPlaca id = new VeiculoPlaca("ABC-1345", "Goianesia");
 
-			vv.setId(id);
+			vv.setId(null);
 			vv.setFabricante("VW");
 			vv.setModelo("Voyage");
 			vv.setAnoFabricacao(2018);
@@ -238,14 +296,23 @@ public class Programa {
 			id = scan.nextLong();
 
 			prop = em.find(Proprietario.class, id); // Objeto Prop recebe a Busca
+
 			System.out.println(prop.toString());
+			
+			for (Veiculo veiculo : prop.getVeiculos()) {
+				
+				System.out.println("Veículo" + veiculo.getModelo());
+			}
 
 			scan.close();
 
 			JpaUtil.close();
 			em.close();
 
+		} else if (opcao == 11) {
+			
 		}
+		
 		sc.close();// sc
 	}// Main
 

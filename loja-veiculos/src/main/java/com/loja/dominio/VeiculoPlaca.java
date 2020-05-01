@@ -11,31 +11,31 @@ import javax.persistence.Table;
  *  @author jaime Des */
 
 /*
- * Classe VeiculoID Embutida em Veiculo 
+ * Classe VeiculoPlaca Embutida na classe Veiculo
  */
-
-@Embeddable
-public class VeiculoId implements Serializable {
-	
+@Embeddable //Classe que pode ser embutida em outra
+public class VeiculoPlaca implements Serializable {
+	/**/
+	private static final long serialVersionUID = 1L;
 	private String placa;
 	private String cidade;
 	
+	/*
+	 * Construct
+	 */
 	
-	//Construct
-	public VeiculoId() {
-		
-	}
+	public VeiculoPlaca() {}
 	/*
 	 * Construct Fields
 	 */
-	public VeiculoId(String placa, String cidade) {
+	public VeiculoPlaca(String placa, String cidade) {
 		super();
 		this.placa = placa;
 		this.cidade = cidade;
 	}
 	@Override
 	public String toString() {
-		return "\n VeiculoId placa: " + placa 
+		return "\n Placa: " + placa 
 				+ "\n cidade: " + cidade;
 	}
 	

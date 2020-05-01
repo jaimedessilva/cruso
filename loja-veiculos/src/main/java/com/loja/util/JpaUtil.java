@@ -18,7 +18,7 @@ public class JpaUtil {
 	
 		static {
 			factory = Persistence
-					.createEntityManagerFactory("App_pedidos_jpa");
+					.createEntityManagerFactory("loja-veiculos");
 		}
 		public static EntityManager getFactory () {
 			return factory.createEntityManager();
