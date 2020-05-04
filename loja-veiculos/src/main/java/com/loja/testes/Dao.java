@@ -31,5 +31,9 @@ public interface Dao<E> {
 	 *  Delete
 	 */
 	public void delete(Long id);
+	/*
+	 *  Close
+	 */
+	public void closeT ();
 	
 }

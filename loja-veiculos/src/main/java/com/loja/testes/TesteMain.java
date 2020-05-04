@@ -24,15 +24,17 @@ public class TesteMain {
 //			System.out.println(p);
 		
 		List<Proprietario> listProp = d.findByName("roberto");
+		
 		for (Object obj : listProp) {
 			System.out.println(obj.toString());
+			
+			d.closeT();
+		
+			
 		
 		
 		}
-		
-		
-		
-		
+	
 	}
 
 }

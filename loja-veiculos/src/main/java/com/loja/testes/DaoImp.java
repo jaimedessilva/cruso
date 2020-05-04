@@ -32,6 +32,9 @@ public class DaoImp<E> implements Dao {
 		this.classe = classe;
 		em = emf.createEntityManager();
 	}
+	/*
+	 *  Create
+	 */
 	@Override
 	public void create(Object entidade) {
 		
@@ -40,20 +43,26 @@ public class DaoImp<E> implements Dao {
 		em.getTransaction().commit();
 		
 	}
-
+	/*
+	 *  Read
+	 */
 	@Override
 	public List getAll() {
 		TypedQuery<E> query = em.createQuery
 				("select e from " + classe.getName()+" e", classe);
 		return query.getResultList();
 	}
-
+	/*
+	 *  read
+	 */
 	@Override
 	public Object getById(Long id) {
 		Object obj = em.find(classe, id);
 		return obj;
 	}
-
+	/*
+	 *  read
+	 */
 	@Override
 	public List findByName(String onome) {
 		
@@ -63,7 +72,9 @@ public class DaoImp<E> implements Dao {
 		query.setParameter("nome", onome+"%");
 		return query.getResultList();
 	}
-
+	/*
+	 *  Update
+	 */
 	@Override
 	public Object update(Object entidade) {
 		
@@ -73,7 +84,9 @@ public class DaoImp<E> implements Dao {
 		
 		return entidade;
 	}
-
+	/*
+	 *  Delete
+	 */
 	@Override
 	public void delete(Long id) {
 		//FindById
@@ -81,7 +94,15 @@ public class DaoImp<E> implements Dao {
 		//Remove
 		em.getTransaction().begin();
 		em.remove(entidade);
-		em.getTransaction().commit();
+		em.getTransaction().commit();		
+	}
+	/*
+	 *  Close
+	 */
+	@Override
+	public void closeT() {
+		em.close();
+		emf.close();
 		
 	}
 
