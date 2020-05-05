@@ -14,7 +14,7 @@ public class TesteEntidade {
 	/** @param args */
 	public static void main(String[] args) {
 		/*
-		 *  Prorpietario
+		 *  Proprietario
 		 */
 		Proprietario p = new Proprietario
 				(1l,"Joaquin Cabral","joaquin@gmail.com","61-9999-6633");
